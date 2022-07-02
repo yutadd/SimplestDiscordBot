@@ -15,7 +15,11 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 
 public class Main {
 	public static void main(String[] args) {
-		String token = "token!";
+		if(args.length==0) {
+			System.out.println("Give the token as an argument.!");
+			System.exit(1);
+		}
+		String token = args[0];
 		JDABuilder jdaBuilder = JDABuilder.createDefault(token);
 		jdaBuilder.enableIntents(GatewayIntent.GUILD_MEMBERS);
 		jdaBuilder.setStatus(OnlineStatus.DO_NOT_DISTURB);
